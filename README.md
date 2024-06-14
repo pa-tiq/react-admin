@@ -1,14 +1,14 @@
 
 ## Quick start
 
-- Make sure your Node.js and npm versions are up to date
-- Install dependencies: `npm install` or `yarn`
+- Make sure your Node.js and npm versions are up to date. NPM version is specified in the .nvmrc file.
+- Install version with nvm: `nvm install`
+- Set node version with nvm: `nvm use`
+- Install dependencies: `npm ci` or `yarn`
 - Start the server: `npm run dev` or `yarn dev`
 - Open browser: `http://localhost:3000`
 
 ## File Structure
-
-Within the download you'll find the following directories and files:
 
 ```
 ┌── .editorconfig
