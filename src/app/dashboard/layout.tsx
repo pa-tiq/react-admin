@@ -21,7 +21,7 @@ export default function Layout({ children }: LayoutProps): React.JSX.Element {
             '--MainNav-zIndex': 1000,
             '--SideNav-width': '170px',
             '--SideNav-zIndex': 1100,
-            '--MobileNav-width': '320px',
+            '--MobileNav-width': '200px',
             '--MobileNav-zIndex': 1100,
           },
         }}
