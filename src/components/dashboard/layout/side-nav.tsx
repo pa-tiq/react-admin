@@ -28,7 +28,7 @@ export function SideNav(): React.JSX.Element {
         '--SideNav-background': 'var(--mui-palette-neutral-950)',
         '--SideNav-color': 'var(--mui-palette-common-white)',
         '--NavItem-color': 'var(--mui-palette-neutral-300)',
-        '--NavItem-hover-background': 'rgba(255, 255, 255, 0.04)',
+        '--NavItem-hover-background': 'rgba(255, 255, 255, 0.09)',
         '--NavItem-active-background': 'var(--mui-palette-primary-main)',
         '--NavItem-active-color': 'var(--mui-palette-primary-contrastText)',
         '--NavItem-disabled-color': 'var(--mui-palette-neutral-500)',
@@ -161,12 +161,25 @@ function NavItem({ disabled, external, href, icon, matcher, pathname, title }: N
           position: 'relative',
           textDecoration: 'none',
           whiteSpace: 'nowrap',
+          transition: 'background-color 0.3s',  // Add transition for smooth effect
+          '&:hover': {                        // Hover styles
+            bgcolor: !active && !disabled ? 'var(--NavItem-hover-background)' : 'inherit',
+          },
           ...(disabled && {
             bgcolor: 'var(--NavItem-disabled-background)',
             color: 'var(--NavItem-disabled-color)',
             cursor: 'not-allowed',
+            '&:hover': {                       // No hover effect on disabled items
+              bgcolor: 'var(--NavItem-disabled-background)', // Inherit disabled background on hover
+            },
           }),
-          ...(active && { bgcolor: 'var(--NavItem-active-background)', color: 'var(--NavItem-active-color)' }),
+          ...(active && { 
+            bgcolor: 'var(--NavItem-active-background)', 
+            color: 'var(--NavItem-active-color)',
+            '&:hover': {                       // No hover effect on active items
+              bgcolor: 'var(--NavItem-active-background)', // Inherit active background on hover
+            },
+          }),
         }}
       >
         <Box sx={{ alignItems: 'center', display: 'flex', justifyContent: 'center', flex: '0 0 auto' }}>
