@@ -3,7 +3,6 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Stack from "@mui/material/Stack";
 import SliderInput from "@/components/core/slider-input";
 
 export interface CardSliderInputProps {
@@ -13,6 +12,8 @@ export interface CardSliderInputProps {
   icon: React.JSX.Element;
   minValue: number;
   maxValue: number;
+  inputPrefix?: string;
+  inputSuffix?: string;
 }
 
 export function CardSliderInput({
@@ -22,6 +23,8 @@ export function CardSliderInput({
   icon,
   minValue,
   maxValue,
+  inputPrefix,
+  inputSuffix
 }: CardSliderInputProps): React.JSX.Element {
   return (
     <Card sx={{ height: "100%" }}>
@@ -33,6 +36,8 @@ export function CardSliderInput({
           icon={icon}
           minValue={minValue}
           maxValue={maxValue}
+          prefix={inputPrefix}
+          suffix={inputSuffix}
         />
       </CardContent>
     </Card>

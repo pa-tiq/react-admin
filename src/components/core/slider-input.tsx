@@ -8,6 +8,7 @@ import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import { Stack } from "@mui/system";
 import Avatar from "@mui/material/Avatar";
+import { InputAdornment } from "@mui/material";
 
 const Input = styled(MuiInput)(({ theme }) => ({
   minWidth: 75,
@@ -29,6 +30,8 @@ export interface SliderInputProps {
   icon: React.JSX.Element;
   minValue: number;
   maxValue: number;
+  prefix?: string;
+  suffix?: string;
 }
 
 export default function SliderInput({
@@ -37,7 +40,9 @@ export default function SliderInput({
   onChange,
   icon,
   minValue,
-  maxValue
+  maxValue,
+  prefix,
+  suffix
 }: SliderInputProps): React.JSX.Element {
 
   const handleSliderChange = (event: Event, newValue: number | number[]) => {
@@ -75,6 +80,11 @@ export default function SliderInput({
               height: "56px",
               width: "56px",
               marginTop: "-10px",
+              fontSize:"var(--icon-fontSize-lg)",
+              display: 'flex', // Enable Flexbox
+              justifyContent: 'center', // Center horizontally
+              alignItems: 'center', // Center vertically
+              lineHeight: '56px', // Adjust line height
             }}
           >
             {icon}
@@ -92,6 +102,8 @@ export default function SliderInput({
               type: "number",
               "aria-labelledby": "input-slider",
             }}
+            startAdornment={<InputAdornment position="start">{prefix}</InputAdornment> }
+            endAdornment={<InputAdornment position="end">{suffix}</InputAdornment> }
           />
         </Stack>
       </Stack>
