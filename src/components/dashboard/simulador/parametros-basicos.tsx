@@ -7,9 +7,15 @@ import { Users as UsersIcon } from "@phosphor-icons/react/dist/ssr/Users";
 import { CurrencyCircleDollar } from "@phosphor-icons/react/dist/ssr";
 import { PiggyBank } from "@phosphor-icons/react";
 import { Card, CardContent, CardHeader, Divider } from "@mui/material";
+import { useSimulacao } from "@/hooks/use-simulacao";
 
 export function ParametrosBasicos(): React.JSX.Element {
-  const [idadeAtual, setIdadeAtual] = React.useState(30);
+  const [expectativaVida, setExpectativaVida] = React.useState(80);
+
+  //const [idadeAtual, setIdadeAtual] = React.useState(30);
+
+  const {idadeAtual, setIdadeAtual }= useSimulacao();
+
   const [idadeAposentadoria, setIdadeAposentadoria] = React.useState(65);
   const [contribuicaoMensal, setContribuicaoMensal] = React.useState(200);
   const [aporteInicial, setAporteInicial] = React.useState(0);
@@ -39,8 +45,8 @@ export function ParametrosBasicos(): React.JSX.Element {
             value={idadeAposentadoria}
             onChange={(newValue) => setIdadeAposentadoria(newValue)}
             icon={<UsersIcon />}
-            minValue={0}
-            maxValue={100}
+            minValue={idadeAtual + 1}
+            maxValue={expectativaVida + idadeAtual < 101 ? expectativaVida + idadeAtual : 101}
             inputSuffix={"Anos"}
           />
         </Grid>
