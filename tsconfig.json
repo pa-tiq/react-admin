@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/services/planejamento-financeiro.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/services/planejamento-financeiro.js", "src/services/inflacao.js", "src/services/utils.js"],
   "exclude": ["node_modules"]
 }

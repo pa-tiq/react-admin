@@ -13,8 +13,8 @@ import { Stack } from '@mui/system';
 
 const Input = styled(MuiInput)(({ theme }) => ({
   minWidth: 75,
-  maxWidth: 230,
-  fontSize: 31,
+  maxWidth: 150,
+  fontSize: 28,
   fontWeight: theme.typography.h4.fontWeight,
   textAlign: 'center',
   '& input': {
@@ -31,6 +31,7 @@ export interface SliderInputProps {
   icon: React.JSX.Element;
   minValue: number;
   maxValue: number;
+  step?: number;
   prefix?: string;
   suffix?: string;
 }
@@ -42,6 +43,7 @@ export default function SliderInput({
   icon,
   minValue,
   maxValue,
+  step,
   prefix,
   suffix,
 }: SliderInputProps): React.JSX.Element {
@@ -97,7 +99,7 @@ export default function SliderInput({
             onChange={handleInputChange}
             onBlur={handleBlur}
             inputProps={{
-              step: 1,
+              step: step ? step : 1,
               min: minValue,
               max: maxValue,
               type: 'number',
@@ -115,6 +117,7 @@ export default function SliderInput({
           aria-labelledby="input-slider"
           min={minValue}
           max={maxValue}
+          step={step ? step : 1}
         />
       </Stack>
     </Box>

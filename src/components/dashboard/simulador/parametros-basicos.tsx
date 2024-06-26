@@ -9,6 +9,7 @@ import { Users as UsersIcon } from '@phosphor-icons/react/dist/ssr/Users';
 
 import { useSimulacao } from '@/hooks/use-simulacao';
 import { CardSliderInput } from '@/components/core/card-slider-input';
+import { height } from '@mui/system';
 
 export function ParametrosBasicos(): React.JSX.Element {
   const [expectativaVida, setExpectativaVida] = React.useState(80);
@@ -28,7 +29,7 @@ export function ParametrosBasicos(): React.JSX.Element {
 
   return (
     <Card>
-      <CardHeader title="Parâmetros Básicos" />
+      <CardHeader title="Parâmetros Básicos"/>
       <Divider />
       <CardContent>
         <Grid container spacing={1}>

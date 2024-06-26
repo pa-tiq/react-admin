@@ -12,6 +12,7 @@ export interface CardSliderInputProps {
   icon: React.JSX.Element;
   minValue: number;
   maxValue: number;
+  step?: number;
   inputPrefix?: string;
   inputSuffix?: string;
 }
@@ -23,11 +24,12 @@ export function CardSliderInput({
   icon,
   minValue,
   maxValue,
+  step,
   inputPrefix,
   inputSuffix
 }: CardSliderInputProps): React.JSX.Element {
   return (
-    <Card sx={{ height: "100%" }}>
+    <Card sx={{ height: "100%", width:"15rem" }}>
       <CardContent>
         <SliderInput
           title={title}
@@ -36,6 +38,7 @@ export function CardSliderInput({
           icon={icon}
           minValue={minValue}
           maxValue={maxValue}
+          step={step}
           prefix={inputPrefix}
           suffix={inputSuffix}
         />
