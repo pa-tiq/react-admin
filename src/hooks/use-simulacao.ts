@@ -6,7 +6,7 @@ export function useSimulacao(): SimulacaoContextValue {
   const context = React.useContext(SimulacaoContext);
 
   if (!context) {
-    throw new Error('useUser must be used within a UserProvider');
+    throw new Error('useSimulacao must be used within a SimulacaoProvider');
   }
 
   return context;
